@@ -8,6 +8,7 @@ namespace Pokemon
         public int World { get; set; } = 0;
         public bool IsFighting { get; set; } = false;
         public bool IsCutscene { get; set; } = false;
+        public int CutsceneNumber { get; set; } = 0;
         public bool IsRunning { get; set; } = true;
     }
 }

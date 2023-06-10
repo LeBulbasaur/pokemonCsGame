@@ -4,6 +4,7 @@ namespace Pokemon
     {
         public static void Render(GameData gameData, string[] map)
         {
+            Console.WriteLine($"x: {gameData.Coordinates[0]} y: {gameData.Coordinates[1]}");
             foreach (string line in map)
             {
                 foreach (char character in line)
@@ -63,7 +64,6 @@ namespace Pokemon
                 }
                 Console.Write("\n");
             }
-            Console.WriteLine($"x: {gameData.Coordinates[0]} y: {gameData.Coordinates[1]}");
         }
     }
 }
