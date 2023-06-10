@@ -1,0 +1,15 @@
+/Users/bramburek/Documents/asd/pokemon/bin/Debug/net7.0/pokemon
+/Users/bramburek/Documents/asd/pokemon/bin/Debug/net7.0/pokemon.deps.json
+/Users/bramburek/Documents/asd/pokemon/bin/Debug/net7.0/pokemon.runtimeconfig.json
+/Users/bramburek/Documents/asd/pokemon/bin/Debug/net7.0/pokemon.dll
+/Users/bramburek/Documents/asd/pokemon/bin/Debug/net7.0/pokemon.pdb
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.csproj.AssemblyReference.cache
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.AssemblyInfoInputs.cache
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.AssemblyInfo.cs
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.csproj.CoreCompileInputs.cache
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.dll
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/refint/pokemon.dll
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.pdb
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/pokemon.genruntimeconfig.cache
+/Users/bramburek/Documents/asd/pokemon/obj/Debug/net7.0/ref/pokemon.dll
