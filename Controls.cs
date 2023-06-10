@@ -2,51 +2,110 @@ namespace Pokemon
 {
     class Controls
     {
-        public static void KeyboardEvent(GameData gameData, string[] worldMap)
+        public static void KeyboardEvent(GameData gameData, string[] map)
         {
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
             int x = gameData.Coordinates[0];
             int y = gameData.Coordinates[1];
 
-            if (
-                keyInfo.Key == ConsoleKey.UpArrow
-                && y > 0
-                && worldMap[y - 1][x] != '='
-                )
+            switch (keyInfo.Key)
             {
-                y--;
+
+                // ARROW UP
+                case ConsoleKey.UpArrow:
+                    if (
+                        map[y - 1][x] != '('
+                        && map[y - 1][x] != ')'
+                        && map[y - 1][x] != '|'
+                        && map[y - 1][x] != '/'
+                        && map[y - 1][x] != '\\'
+                        && map[y - 1][x] != '-'
+                        && map[y - 1][x] != '_'
+                        )
+                    {
+                        gameData.Coordinates[1]--;
+                    }
+                    if (map[y - 1][x] == '0')
+                    {
+                        gameData.Coordinates[1] = 11;
+                        gameData.World = 0;
+                    }
+                    if (map[y - 1][x] == '9')
+                    {
+                        gameData.Coordinates[0] = 23;
+                        gameData.Coordinates[1] = 7;
+                        gameData.World = 2;
+                    }
+                    break;
+
+                // ARROW DOWN    
+                case ConsoleKey.DownArrow:
+                    if (
+                        map[y + 1][x] != '('
+                        && map[y + 1][x] != ')'
+                        && map[y + 1][x] != '|'
+                        && map[y + 1][x] != '/'
+                        && map[y + 1][x] != '\\'
+                        && map[y + 1][x] != '-'
+                        && map[y + 1][x] != '_'
+                        )
+                    {
+                        gameData.Coordinates[1]++;
+                    }
+                    if (map[y + 1][x] == '1')
+                    {
+                        gameData.Coordinates[1] = 1;
+                        gameData.World = 1;
+                    }
+                    if (map[y + 1][x] == '9')
+                    {
+                        gameData.Coordinates[0] = 28;
+                        gameData.Coordinates[1] = 7;
+                        gameData.World = 0;
+                    }
+                    break;
+
+                // ARROW LEFT
+                case ConsoleKey.LeftArrow:
+                    if (
+                        map[y][x - 1] != '('
+                        && map[y][x - 1] != ')'
+                        && map[y][x - 1] != '|'
+                        && map[y][x - 1] != '/'
+                        && map[y][x - 1] != '\\'
+                        && map[y][x - 1] != '-'
+                        && map[y][x - 1] != '_'
+                        )
+                    {
+                        gameData.Coordinates[0]--;
+                    }
+                    if (map[y][x - 1] == '♞')
+                    {
+                        gameData.IsCutscene = true;
+                    }
+                    break;
+
+                // ARROW RIGHT
+                case ConsoleKey.RightArrow:
+                    if (
+                        map[y][x + 2] != '('
+                        && map[y][x + 2] != ')'
+                        && map[y][x + 2] != '|'
+                        && map[y][x + 2] != '/'
+                        && map[y][x + 2] != '\\'
+                        && map[y][x + 2] != '-'
+                        && map[y][x + 2] != '_'
+                        )
+                    {
+                        gameData.Coordinates[0]++;
+                    }
+                    break;
+                case ConsoleKey.Escape:
+                    gameData.IsRunning = false;
+                    break;
             }
-            else if (
-                keyInfo.Key == ConsoleKey.DownArrow
-                && y < 10
-                && worldMap[y + 1][x] != '='
-                )
-            {
-                y++;
-            }
-            else if (
-                keyInfo.Key == ConsoleKey.LeftArrow
-                && x > 0
-                && worldMap[y][x - 1] != '='
-                )
-            {
-                x--;
-            }
-            else if (
-                keyInfo.Key == ConsoleKey.RightArrow
-                && x < 31
-                && worldMap[y][x + 1] != '='
-                )
-            {
-                x++;
-            }
-            else if (keyInfo.Key == ConsoleKey.Escape)
-            {
-                gameData.IsRunning = false;
-            }
-            gameData.Coordinates[0] = x;
-            gameData.Coordinates[1] = y;
+
         }
     }
 }
