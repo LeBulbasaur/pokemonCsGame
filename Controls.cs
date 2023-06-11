@@ -122,9 +122,18 @@ namespace Pokemon
                     gameData.CanInteract = true;
                     gameData.CutsceneNumber = 0;
                 }
+                else if (
+                    map[gameData.Coordinates[1]][gameData.Coordinates[0]] == '#'
+                )
+                {
+                    Random rnd = new Random();
+                    int num = rnd.Next(10);
+                    if (num < 2) gameData.IsEncounter = true;
+                }
                 else
                 {
                     gameData.CanInteract = false;
+                    gameData.IsEncounter = false;
                 }
             }
             if (gameData.IsCutscene)

@@ -63,10 +63,31 @@ namespace Pokemon
                     Console.ResetColor();
                 }
                 Console.Write("\n");
+
             }
             if (gameData.CanInteract && !gameData.IsCutscene)
             {
                 Console.WriteLine("Press E to interact");
+            }
+            else if (gameData.IsEncounter)
+            {
+                Console.WriteLine("Press E to fight");
+            }
+            else
+            {
+                Console.WriteLine("\nInventory:");
+                Console.WriteLine($"Pokeballs: {gameData.Pokeballs}");
+                Console.WriteLine($"Potions: {gameData.Potions}");
+
+                if (gameData.Pokemons.Count > 0)
+                {
+                    Console.WriteLine($"\nPokemons:");
+                    foreach (Pokemon pokemon in gameData.Pokemons)
+                    {
+                        Console.WriteLine($"Name: {pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.MaxHP} Level: {pokemon.Level}");
+                    }
+                }
+                Console.WriteLine("\nPress ESC to quit");
             }
         }
     }

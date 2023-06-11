@@ -11,9 +11,9 @@ namespace Pokemon
         public static void EntryDialog(GameData gameData)
         {
             string[] oak = ASCII.OakArt();
-            string[] bulbasaur = ASCII.BulbasaurArt();
-            string[] charmander = ASCII.CharmanderArt();
-            string[] squirtle = ASCII.SquirtleArt();
+            string[] bulbasaurArt = ASCII.BulbasaurArt();
+            string[] charmanderArt = ASCII.CharmanderArt();
+            string[] squirtleArt = ASCII.SquirtleArt();
 
             switch (gameData.CutsceneDialog)
             {
@@ -123,7 +123,7 @@ namespace Pokemon
                     break;
                 case 10:
                     Console.ForegroundColor = ConsoleColor.Green;
-                    foreach (string line in bulbasaur)
+                    foreach (string line in bulbasaurArt)
                     {
                         Console.WriteLine(line);
                     }
@@ -133,7 +133,7 @@ namespace Pokemon
                     break;
                 case 11:
                     Console.ForegroundColor = ConsoleColor.Red;
-                    foreach (string line in charmander)
+                    foreach (string line in charmanderArt)
                     {
                         Console.WriteLine(line);
                     }
@@ -143,7 +143,7 @@ namespace Pokemon
                     break;
                 case 12:
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    foreach (string line in squirtle)
+                    foreach (string line in squirtleArt)
                     {
                         Console.WriteLine(line);
                     }
@@ -166,26 +166,39 @@ namespace Pokemon
                         switch (choice)
                         {
                             case "1":
-                                gameData.Pokemons.Insert(0, "Bulbasaur");
-                                break;
+                                {
+                                    Bulbasaur bulbasaur = new Bulbasaur();
+                                    gameData.Pokemons.Insert(0, bulbasaur);
+                                    break;
+                                }
                             case "2":
-                                gameData.Pokemons.Insert(0, "Charmander");
-                                break;
+                                {
+                                    Charmander charmander = new Charmander();
+                                    gameData.Pokemons.Insert(0, charmander);
+                                    break;
+                                }
                             case "3":
-                                gameData.Pokemons.Insert(0, "Squirtle");
-                                break;
+                                {
+                                    Squirtle squirtle = new Squirtle();
+                                    gameData.Pokemons.Insert(0, squirtle);
+                                    break;
+                                }
                             default:
-                                Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
-                                gameData.Pokemons.Insert(0, "Bulbasaur");
-                                break;
+                                {
+                                    Bulbasaur bulbasaur = new Bulbasaur();
+                                    Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
+                                    gameData.Pokemons.Insert(0, bulbasaur);
+                                    break;
+                                }
                         }
                     }
                     else
                     {
+                        Bulbasaur bulbasaur = new Bulbasaur();
                         Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
-                        gameData.Pokemons.Insert(0, "Bulbasaur");
+                        gameData.Pokemons.Insert(0, bulbasaur);
                     }
-                    Console.WriteLine("You chose " + gameData.Pokemons[0] + "!");
+                    Console.WriteLine("You chose " + gameData.Pokemons[0].Name + "!");
                     Console.CursorVisible = false;
                     Console.WriteLine("\nPress Space to continue...");
                     break;
