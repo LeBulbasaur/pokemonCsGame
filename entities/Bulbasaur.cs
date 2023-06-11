@@ -2,9 +2,11 @@ namespace Pokemon
 {
     class Bulbasaur : Pokemon
     {
-        public Bulbasaur()
+        public Bulbasaur(int level)
         {
             Name = "Bulbasaur";
+            Level = level;
+            Experience = 0;
             MaxHP = 20;
             CurrentHP = 20;
             Type = Types.Grass;

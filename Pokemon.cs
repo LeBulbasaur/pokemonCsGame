@@ -2,8 +2,9 @@ namespace Pokemon
 {
     class Pokemon
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
         public int Level { get; set; }
+        public int Experience { get; set; }
         public int MaxHP { get; set; }
         public int CurrentHP { get; set; }
         public Types Type { get; set; }

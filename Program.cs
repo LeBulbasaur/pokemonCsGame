@@ -11,6 +11,7 @@ namespace Pokemon
             GameData gameData = new GameData();
             Map map = new Map();
             Console.CursorVisible = false;
+            Console.SetWindowSize(60, 100);
 
             while (gameData.IsRunning)
             {

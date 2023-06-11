@@ -67,7 +67,7 @@ namespace Pokemon
             }
             if (gameData.CanInteract && !gameData.IsCutscene)
             {
-                Console.WriteLine("Press E to interact");
+                Console.WriteLine("\nPress E to interact");
             }
             else if (gameData.IsEncounter)
             {

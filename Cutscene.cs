@@ -167,25 +167,25 @@ namespace Pokemon
                         {
                             case "1":
                                 {
-                                    Bulbasaur bulbasaur = new Bulbasaur();
+                                    Bulbasaur bulbasaur = new Bulbasaur(1);
                                     gameData.Pokemons.Insert(0, bulbasaur);
                                     break;
                                 }
                             case "2":
                                 {
-                                    Charmander charmander = new Charmander();
+                                    Charmander charmander = new Charmander(1);
                                     gameData.Pokemons.Insert(0, charmander);
                                     break;
                                 }
                             case "3":
                                 {
-                                    Squirtle squirtle = new Squirtle();
+                                    Squirtle squirtle = new Squirtle(1);
                                     gameData.Pokemons.Insert(0, squirtle);
                                     break;
                                 }
                             default:
                                 {
-                                    Bulbasaur bulbasaur = new Bulbasaur();
+                                    Bulbasaur bulbasaur = new Bulbasaur(1);
                                     Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
                                     gameData.Pokemons.Insert(0, bulbasaur);
                                     break;
@@ -194,7 +194,7 @@ namespace Pokemon
                     }
                     else
                     {
-                        Bulbasaur bulbasaur = new Bulbasaur();
+                        Bulbasaur bulbasaur = new Bulbasaur(1);
                         Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
                         gameData.Pokemons.Insert(0, bulbasaur);
                     }

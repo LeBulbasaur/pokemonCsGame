@@ -2,9 +2,11 @@ namespace Pokemon
 {
     class Squirtle : Pokemon
     {
-        public Squirtle()
+        public Squirtle(int level)
         {
             Name = "Squirtle";
+            Level = level;
+            Experience = 0;
             MaxHP = 20;
             CurrentHP = 20;
             Type = Types.Water;

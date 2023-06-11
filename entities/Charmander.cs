@@ -2,9 +2,11 @@ namespace Pokemon
 {
     class Charmander : Pokemon
     {
-        public Charmander()
+        public Charmander(int level)
         {
             Name = "Charmander";
+            Level = level;
+            Experience = 0;
             MaxHP = 20;
             CurrentHP = 20;
             Type = Types.Fire;

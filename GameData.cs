@@ -14,7 +14,7 @@ namespace Pokemon
         public bool IsCutscene { get; set; } = false;
         public int CutsceneNumber { get; set; } = 0;
         public int CutsceneDialog { get; set; } = 0;
-        public bool EntryTalk { get; set; } = false;
         public bool IsRunning { get; set; } = true;
+        public bool EntryTalk { get; set; } = false;
     }
 }
