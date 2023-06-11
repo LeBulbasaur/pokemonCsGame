@@ -6,106 +6,139 @@ namespace Pokemon
         {
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-            int x = gameData.Coordinates[0];
-            int y = gameData.Coordinates[1];
-
-            switch (keyInfo.Key)
+            if (!gameData.IsCutscene)
             {
+                int x = gameData.Coordinates[0];
+                int y = gameData.Coordinates[1];
 
-                // ARROW UP
-                case ConsoleKey.UpArrow:
-                    if (
-                        map[y - 1][x] != '('
-                        && map[y - 1][x] != ')'
-                        && map[y - 1][x] != '|'
-                        && map[y - 1][x] != '/'
-                        && map[y - 1][x] != '\\'
-                        && map[y - 1][x] != '-'
-                        && map[y - 1][x] != '_'
-                        )
-                    {
-                        gameData.Coordinates[1]--;
-                    }
-                    if (map[y - 1][x] == '0')
-                    {
-                        gameData.Coordinates[1] = 11;
-                        gameData.World = 0;
-                    }
-                    if (map[y - 1][x] == '9')
-                    {
-                        gameData.Coordinates[0] = 23;
-                        gameData.Coordinates[1] = 7;
-                        gameData.World = 2;
-                    }
-                    break;
+                switch (keyInfo.Key)
+                {
 
-                // ARROW DOWN    
-                case ConsoleKey.DownArrow:
-                    if (
-                        map[y + 1][x] != '('
-                        && map[y + 1][x] != ')'
-                        && map[y + 1][x] != '|'
-                        && map[y + 1][x] != '/'
-                        && map[y + 1][x] != '\\'
-                        && map[y + 1][x] != '-'
-                        && map[y + 1][x] != '_'
-                        )
-                    {
-                        gameData.Coordinates[1]++;
-                    }
-                    if (map[y + 1][x] == '1')
-                    {
-                        gameData.Coordinates[1] = 1;
-                        gameData.World = 1;
-                    }
-                    if (map[y + 1][x] == '9')
-                    {
-                        gameData.Coordinates[0] = 28;
-                        gameData.Coordinates[1] = 7;
-                        gameData.World = 0;
-                    }
-                    break;
+                    // ARROW UP
+                    case ConsoleKey.UpArrow:
+                        if (
+                            !gameData.IsCutscene
+                            && map[y - 1][x] != '('
+                            && map[y - 1][x] != ')'
+                            && map[y - 1][x] != '|'
+                            && map[y - 1][x] != '/'
+                            && map[y - 1][x] != '\\'
+                            && map[y - 1][x] != '-'
+                            && map[y - 1][x] != '_'
+                            )
+                        {
+                            gameData.Coordinates[1]--;
+                        }
+                        if (map[y - 1][x] == '0')
+                        {
+                            gameData.Coordinates[1] = 11;
+                            gameData.World = 0;
+                        }
+                        if (map[y - 1][x] == '9')
+                        {
+                            gameData.Coordinates[0] = 23;
+                            gameData.Coordinates[1] = 7;
+                            gameData.World = 2;
+                        }
+                        break;
 
-                // ARROW LEFT
-                case ConsoleKey.LeftArrow:
-                    if (
-                        map[y][x - 1] != '('
-                        && map[y][x - 1] != ')'
-                        && map[y][x - 1] != '|'
-                        && map[y][x - 1] != '/'
-                        && map[y][x - 1] != '\\'
-                        && map[y][x - 1] != '-'
-                        && map[y][x - 1] != '_'
-                        )
-                    {
-                        gameData.Coordinates[0]--;
-                    }
-                    if (map[y][x - 1] == '♞')
-                    {
-                        gameData.IsCutscene = true;
-                    }
-                    break;
+                    // ARROW DOWN    
+                    case ConsoleKey.DownArrow:
+                        if (
+                            !gameData.IsCutscene
+                            && map[y + 1][x] != '('
+                            && map[y + 1][x] != ')'
+                            && map[y + 1][x] != '|'
+                            && map[y + 1][x] != '/'
+                            && map[y + 1][x] != '\\'
+                            && map[y + 1][x] != '-'
+                            && map[y + 1][x] != '_'
+                            )
+                        {
+                            gameData.Coordinates[1]++;
+                        }
+                        if (map[y + 1][x] == '1')
+                        {
+                            gameData.Coordinates[1] = 1;
+                            gameData.World = 1;
+                        }
+                        if (map[y + 1][x] == '9')
+                        {
+                            gameData.Coordinates[0] = 28;
+                            gameData.Coordinates[1] = 7;
+                            gameData.World = 0;
+                        }
+                        break;
 
-                // ARROW RIGHT
-                case ConsoleKey.RightArrow:
-                    if (
-                        map[y][x + 2] != '('
-                        && map[y][x + 2] != ')'
-                        && map[y][x + 2] != '|'
-                        && map[y][x + 2] != '/'
-                        && map[y][x + 2] != '\\'
-                        && map[y][x + 2] != '-'
-                        && map[y][x + 2] != '_'
-                        )
-                    {
-                        gameData.Coordinates[0]++;
-                    }
-                    break;
-                case ConsoleKey.Escape:
-                    gameData.IsRunning = false;
-                    break;
+                    // ARROW LEFT
+                    case ConsoleKey.LeftArrow:
+                        if (
+                            !gameData.IsCutscene
+                            && map[y][x - 1] != '('
+                            && map[y][x - 1] != ')'
+                            && map[y][x - 1] != '|'
+                            && map[y][x - 1] != '/'
+                            && map[y][x - 1] != '\\'
+                            && map[y][x - 1] != '-'
+                            && map[y][x - 1] != '_'
+                            && map[y][x - 1] != '♞'
+                            )
+                        {
+                            gameData.Coordinates[0]--;
+                        }
+                        break;
+
+                    // ARROW RIGHT
+                    case ConsoleKey.RightArrow:
+                        if (
+                            !gameData.IsCutscene
+                            && map[y][x + 2] != '('
+                            && map[y][x + 2] != ')'
+                            && map[y][x + 2] != '|'
+                            && map[y][x + 2] != '/'
+                            && map[y][x + 2] != '\\'
+                            && map[y][x + 2] != '-'
+                            && map[y][x + 2] != '_'
+                            )
+                        {
+                            gameData.Coordinates[0]++;
+                        }
+                        break;
+                    case ConsoleKey.E:
+                        if (gameData.CanInteract)
+                        {
+                            gameData.IsCutscene = true;
+                        }
+                        break;
+                    case ConsoleKey.Escape:
+                        gameData.IsRunning = false;
+                        break;
+                }
+                if (
+                    map[gameData.Coordinates[1]][gameData.Coordinates[0] - 1] == '♞'
+                    && !gameData.EntryTalk
+                    )
+                {
+                    gameData.CanInteract = true;
+                    gameData.CutsceneNumber = 0;
+                }
+                else
+                {
+                    gameData.CanInteract = false;
+                }
             }
-
+            if (gameData.IsCutscene)
+            {
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.Spacebar:
+                        gameData.CutsceneDialog++;
+                        break;
+                    case ConsoleKey.Escape:
+                        gameData.IsRunning = false;
+                        break;
+                }
+            }
         }
     }
 }

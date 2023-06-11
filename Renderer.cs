@@ -64,6 +64,10 @@ namespace Pokemon
                 }
                 Console.Write("\n");
             }
+            if (gameData.CanInteract && !gameData.IsCutscene)
+            {
+                Console.WriteLine("Press E to interact");
+            }
         }
     }
 }

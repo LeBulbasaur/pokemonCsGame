@@ -16,8 +16,9 @@ namespace Pokemon
             {
                 Console.Clear();
                 string[] currentMap = map.GetWorldMap(gameData, gameData.Coordinates[0], gameData.Coordinates[1]);
-                Renderer.Render(gameData, currentMap);
-                if (!gameData.IsFighting && !gameData.IsCutscene) Controls.KeyboardEvent(gameData, currentMap);
+                if (!gameData.IsCutscene) Renderer.Render(gameData, currentMap);
+                if (gameData.IsCutscene) Cutscene.EntryDialog(gameData);
+                Controls.KeyboardEvent(gameData, currentMap);
             }
         }
     }
