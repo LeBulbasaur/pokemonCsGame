@@ -11,9 +11,9 @@ namespace Pokemon
         public static void EntryDialog(GameData gameData)
         {
             string[] oak = ASCII.OakArt();
-            string[] bulbasaurArt = ASCII.BulbasaurArt();
-            string[] charmanderArt = ASCII.CharmanderArt();
-            string[] squirtleArt = ASCII.SquirtleArt();
+            string[] bulbasaurArt = ASCII.BulbasaurArtShorter();
+            string[] charmanderArt = ASCII.CharmanderArtShorter();
+            string[] squirtleArt = ASCII.SquirtleArtShorter();
 
             switch (gameData.CutsceneDialog)
             {
