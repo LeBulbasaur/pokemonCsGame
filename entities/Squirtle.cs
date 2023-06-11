@@ -7,7 +7,7 @@ namespace Pokemon
             Name = "Squirtle";
             MaxHP = 20;
             CurrentHP = 20;
-            Type = "Water";
+            Type = Types.Water;
         }
 
         public void WaterGun()

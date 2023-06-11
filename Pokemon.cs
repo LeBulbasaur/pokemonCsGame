@@ -6,7 +6,7 @@ namespace Pokemon
         public int Level { get; set; }
         public int MaxHP { get; set; }
         public int CurrentHP { get; set; }
-        public string Type { get; set; }
+        public Types Type { get; set; }
 
         public void Attack()
         {

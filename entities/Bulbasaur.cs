@@ -7,7 +7,7 @@ namespace Pokemon
             Name = "Bulbasaur";
             MaxHP = 20;
             CurrentHP = 20;
-            Type = "Grass";
+            Type = Types.Grass;
         }
 
         public void VineWhip()

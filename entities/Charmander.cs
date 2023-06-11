@@ -7,7 +7,7 @@ namespace Pokemon
             Name = "Charmander";
             MaxHP = 20;
             CurrentHP = 20;
-            Type = "Fire";
+            Type = Types.Fire;
         }
 
         public void Ember()
