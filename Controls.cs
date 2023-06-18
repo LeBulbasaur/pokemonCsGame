@@ -6,7 +6,7 @@ namespace Pokemon
         {
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-            if (!gameData.IsCutscene)
+            if (!gameData.IsCutscene && !gameData.IsEncounter)
             {
                 int x = gameData.Coordinates[0];
                 int y = gameData.Coordinates[1];
@@ -115,12 +115,19 @@ namespace Pokemon
                         break;
                 }
                 if (
-                    map[gameData.Coordinates[1]][gameData.Coordinates[0] - 1] == '♞'
-                    && !gameData.EntryTalk
-                    )
+                     map[gameData.Coordinates[1]][gameData.Coordinates[0] - 1] == '♞'
+                     && !gameData.EntryTalk
+                     )
                 {
                     gameData.CanInteract = true;
                     gameData.CutsceneNumber = 0;
+                }
+                else if (
+                    map[gameData.Coordinates[1]][gameData.Coordinates[0] + 1] == 'o'
+                )
+                {
+                    gameData.CanInteract = true;
+                    gameData.CutsceneNumber = 1;
                 }
                 else if (
                     map[gameData.Coordinates[1]][gameData.Coordinates[0]] == '#'
@@ -129,6 +136,7 @@ namespace Pokemon
                     Random rnd = new Random();
                     int num = rnd.Next(10);
                     if (num < 2) gameData.IsEncounter = true;
+                    gameData.CurrentEnemy = new Charmander(1, 3);
                 }
                 else
                 {
@@ -143,6 +151,15 @@ namespace Pokemon
                     case ConsoleKey.Spacebar:
                         gameData.CutsceneDialog++;
                         break;
+                    case ConsoleKey.Escape:
+                        gameData.IsRunning = false;
+                        break;
+                }
+            }
+            if (gameData.IsEncounter)
+            {
+                switch (keyInfo.Key)
+                {
                     case ConsoleKey.Escape:
                         gameData.IsRunning = false;
                         break;

@@ -76,7 +76,6 @@ namespace Pokemon
             else
             {
                 Console.WriteLine("\nInventory:");
-                Console.WriteLine($"Pokeballs: {gameData.Pokeballs}");
                 Console.WriteLine($"Potions: {gameData.Potions}");
 
                 if (gameData.Pokemons.Count > 0)

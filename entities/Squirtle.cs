@@ -2,24 +2,15 @@ namespace Pokemon
 {
     class Squirtle : Pokemon
     {
-        public Squirtle(int level)
+        public Squirtle(int level, int experience)
         {
             Name = "Squirtle";
             Level = level;
-            Experience = 0;
+            Damage = 5;
+            Experience = experience;
             MaxHP = 20;
             CurrentHP = 20;
             Type = Types.Water;
-        }
-
-        public void WaterGun()
-        {
-            Console.WriteLine("Squirtle used Water Gun!");
-        }
-
-        public void Bubble()
-        {
-            Console.WriteLine("Squirtle used Bubble!");
         }
     }
 }

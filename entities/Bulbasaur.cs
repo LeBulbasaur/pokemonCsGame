@@ -2,24 +2,15 @@ namespace Pokemon
 {
     class Bulbasaur : Pokemon
     {
-        public Bulbasaur(int level)
+        public Bulbasaur(int level, int experience)
         {
             Name = "Bulbasaur";
             Level = level;
-            Experience = 0;
+            Damage = 5;
+            Experience = experience;
             MaxHP = 20;
             CurrentHP = 20;
             Type = Types.Grass;
-        }
-
-        public void VineWhip()
-        {
-            Console.WriteLine("Bulbasaur used Vine Whip!");
-        }
-
-        public void RazorLeaf()
-        {
-            Console.WriteLine("Bulbasaur used Razor Leaf!");
         }
     }
 }

@@ -74,6 +74,7 @@ namespace Pokemon
                     Console.WriteLine("First, what is your name?");
                     Console.CursorVisible = true;
                     Console.WriteLine("Enter your name:");
+                    Console.Write("> ");
                     string? name = Console.ReadLine();
                     if (name != null && name.Length > 1)
                     {
@@ -160,6 +161,7 @@ namespace Pokemon
                     Console.WriteLine("Which Pokemon do you choose?");
                     Console.WriteLine("Enter 1 for Bulbasaur, 2 for Charmander, or 3 for Squirtle.");
                     Console.CursorVisible = true;
+                    Console.Write("> ");
                     string? choice = Console.ReadLine();
                     if (choice != null)
                     {
@@ -167,25 +169,25 @@ namespace Pokemon
                         {
                             case "1":
                                 {
-                                    Bulbasaur bulbasaur = new Bulbasaur(1);
+                                    Bulbasaur bulbasaur = new Bulbasaur(1, 0);
                                     gameData.Pokemons.Insert(0, bulbasaur);
                                     break;
                                 }
                             case "2":
                                 {
-                                    Charmander charmander = new Charmander(1);
+                                    Charmander charmander = new Charmander(1, 0);
                                     gameData.Pokemons.Insert(0, charmander);
                                     break;
                                 }
                             case "3":
                                 {
-                                    Squirtle squirtle = new Squirtle(1);
+                                    Squirtle squirtle = new Squirtle(1, 0);
                                     gameData.Pokemons.Insert(0, squirtle);
                                     break;
                                 }
                             default:
                                 {
-                                    Bulbasaur bulbasaur = new Bulbasaur(1);
+                                    Bulbasaur bulbasaur = new Bulbasaur(1, 0);
                                     Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
                                     gameData.Pokemons.Insert(0, bulbasaur);
                                     break;
@@ -194,7 +196,7 @@ namespace Pokemon
                     }
                     else
                     {
-                        Bulbasaur bulbasaur = new Bulbasaur(1);
+                        Bulbasaur bulbasaur = new Bulbasaur(1, 0);
                         Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
                         gameData.Pokemons.Insert(0, bulbasaur);
                     }
@@ -247,6 +249,36 @@ namespace Pokemon
                     }
                     Console.WriteLine("\n");
                     Console.WriteLine("Good luck on your journey!");
+                    Console.WriteLine("\nPress Space to continue...");
+                    gameData.IsCutscene = false;
+                    gameData.CutsceneDialog = 0;
+                    gameData.EntryTalk = true;
+                    break;
+            }
+        }
+
+        public static void NurseJoy(GameData gameData)
+        {
+            string[] nurseJoy = ASCII.JoyArt();
+            switch (gameData.CutsceneDialog)
+            {
+                case 0:
+                    foreach (string line in nurseJoy)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("Welcome to the Pokemon Center!");
+                    Console.WriteLine("We restore your tired Pokemon to full health.");
+                    Console.WriteLine("Would you like to rest your Pokemon?");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                case 1:
+                    foreach (string line in nurseJoy)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("\n");
+                    Console.WriteLine("We hope to see you again!");
                     Console.WriteLine("\nPress Space to continue...");
                     gameData.IsCutscene = false;
                     gameData.CutsceneDialog = 0;
