@@ -2,9 +2,9 @@ namespace Pokemon
 {
     class GameData
     {
-        public int[] Coordinates { get; set; } = new int[2] { 5, 10 };
+        public int[] Coordinates { get; set; } = new int[2] { 8, 8 };
         public string Name { get; set; } = "Player";
-        public List<Pokemon> Pokemons { get; set; } = new List<Pokemon> { new Bulbasaur(1, 0) };
+        public List<Pokemon> Pokemons { get; set; } = new List<Pokemon> { };
         public int ChosenPokemon { get; set; } = 0;
         public int Potions { get; set; } = 4;
         public int World { get; set; } = 0;

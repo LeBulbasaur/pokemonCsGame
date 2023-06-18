@@ -8,6 +8,72 @@ namespace Pokemon
 
     class Cutscene
     {
+
+        public static void PokemonPrologue(GameData gameData)
+        {
+            string[] logo = ASCII.Logo();
+            string[] night = ASCII.StarryNight();
+
+            switch (gameData.CutsceneDialog)
+            {
+                case 0:
+                    foreach (string line in logo)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    break;
+                case 1:
+                    foreach (string line in night)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("In the world of dreams, a young boy from Kanto region experienced a vivid and extraordinary vision.");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                case 2:
+                    foreach (string line in night)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("In his dream, he became the ultimate Pokemon Trainer, achieving greatness and conquering the legendary Celestial Tower atop Mt. Eternity.");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                case 3:
+                    foreach (string line in night)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("The dream was so vivid and captivating that it lingered in his mind even after he woke up from his post-lunch nap under a shady tree.");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                case 4:
+                    foreach (string line in night)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("As he opened his eyes, the warm sunlight greeted him, and he felt a sense of determination stirring within his heart.");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                case 5:
+                    foreach (string line in night)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("Inspired by his dream, the boy resolved to embark on a real-life journey to become the very best Pokemon Trainer, just as he had envisioned.");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                case 6:
+                    foreach (string line in night)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    Console.WriteLine("With a small backpack slung over his shoulder and a glimmer of excitement in his eyes, he stepped out into the vast and wondrous world of Pokemon.");
+                    Console.WriteLine("\nPress Space to continue...");
+                    gameData.IsCutscene = false;
+                    gameData.CutsceneDialog = 0;
+                    break;
+            }
+        }
         public static void EntryDialog(GameData gameData)
         {
             string[] oak = ASCII.OakArt();
@@ -239,10 +305,27 @@ namespace Pokemon
                         Console.WriteLine(line);
                     }
                     Console.WriteLine("\n");
-                    Console.WriteLine("You can also catch wild Pokemon to add to your team.");
+                    Console.WriteLine("If you want to heal your Pokemon before battle, search for a nurse Joy (marked as + ).");
+                    Console.WriteLine("She will be happy to heal your Pokemons!");
+                    Console.WriteLine("She visited me earlier so maybe you can find her somewhere nearby.");
                     Console.WriteLine("\nPress Space to continue...");
                     break;
                 case 18:
+                    Console.WriteLine("You can train your new friend by battling other Pokemons.");
+                    Console.WriteLine("Actually, wild Pidgeys and Spearows often visit my garden.");
+                    Console.WriteLine("Maybe try AKSDJHASKJDHASKJDHASDKJHASDKJAHSDKAJSDH ");
+                    Console.WriteLine("\nPress Space to continue...");
+                    break;
+                // case 18:
+                //     foreach (string line in oak)
+                //     {
+                //         Console.WriteLine(line);
+                //     }
+                //     Console.WriteLine("\n");
+                //     Console.WriteLine("You can also catch wild Pokemon to add to your team.");
+                //     Console.WriteLine("\nPress Space to continue...");
+                //     break;
+                case 19:
                     foreach (string line in oak)
                     {
                         Console.WriteLine(line);
@@ -262,15 +345,22 @@ namespace Pokemon
             string[] nurseJoy = ASCII.JoyArt();
             if (gameData.Pokemons.Count == 0)
             {
+                foreach (string line in nurseJoy)
+                {
+                    Console.WriteLine(line);
+                }
                 Console.WriteLine("\n");
-                Console.WriteLine("You have no Pokemon!");
-                Console.WriteLine("Maybe visit Professor Oak to get one.");
+                Console.WriteLine("Hello traveler! I'm Nurse Joy and my job is to heal Pokemons.");
+                Console.WriteLine("However, you don't have any Pokemons with you.");
+                Console.WriteLine("Maybe visit Professor Oak to get one?");
+                Console.WriteLine("He lives in the house a little bit to the north.");
                 Console.WriteLine("\nPress Space to continue...");
+                gameData.IsCutscene = false;
+                gameData.CutsceneDialog = 0;
                 return;
             }
             else
             {
-
                 switch (gameData.CutsceneDialog)
                 {
                     case 0:
@@ -279,8 +369,8 @@ namespace Pokemon
                             Console.WriteLine(line);
                         }
                         Console.WriteLine("\n");
-                        Console.WriteLine("Welcome to the Pokemon Center!");
-                        Console.WriteLine("We restore your tired Pokemon to full health.");
+                        Console.WriteLine("Welcome to my mobile hospital!");
+                        Console.WriteLine("My job is to heal Pokemon. Let me see how your friend is doing...");
                         Console.WriteLine("\nPress Space to continue...");
                         break;
                     case 1:
@@ -289,7 +379,7 @@ namespace Pokemon
                             Console.WriteLine(line);
                         }
                         Console.WriteLine("\n");
-                        Console.WriteLine("Healing your Pokemon...");
+                        Console.WriteLine("Hmm... Let's do this, than that, and finally this...");
                         gameData.Pokemons.ForEach(pokemon => pokemon.CurrentHP = pokemon.MaxHP);
                         Console.WriteLine("\nPress Space to continue...");
                         break;
@@ -300,7 +390,7 @@ namespace Pokemon
                         }
                         Console.WriteLine("\n");
                         Console.WriteLine("Your Pokemon have been healed!");
-                        Console.WriteLine("We hope to see you again!");
+                        Console.WriteLine("Visit me whenever you want!");
                         Console.WriteLine("\nPress Space to continue...");
                         gameData.IsCutscene = false;
                         gameData.CutsceneDialog = 0;

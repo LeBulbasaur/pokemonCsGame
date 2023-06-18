@@ -28,6 +28,7 @@ namespace Pokemon
                             && map[y - 1][x] != '\\'
                             && map[y - 1][x] != '-'
                             && map[y - 1][x] != '_'
+                            && map[y - 1][x] != ';'
                             && map[y - 1][x] != nurse
                             )
                         {
@@ -41,7 +42,7 @@ namespace Pokemon
                         if (map[y - 1][x] == '9')
                         {
                             gameData.Coordinates[0] = 23;
-                            gameData.Coordinates[1] = 7;
+                            gameData.Coordinates[1] = 8;
                             gameData.World = 9;
                         }
                         break;
@@ -57,8 +58,8 @@ namespace Pokemon
                             && map[y + 1][x] != '\\'
                             && map[y + 1][x] != '-'
                             && map[y + 1][x] != '_'
+                            && map[y + 1][x] != ';'
                             && map[y + 1][x] != nurse
-
                             )
                         {
                             gameData.Coordinates[1]++;
@@ -87,6 +88,7 @@ namespace Pokemon
                             && map[y][x - 1] != '\\'
                             && map[y][x - 1] != '-'
                             && map[y][x - 1] != '_'
+                            && map[y][x - 1] != ';'
                             && map[y][x - 1] != oak
                             && map[y][x - 1] != nurse
                             )
@@ -111,6 +113,7 @@ namespace Pokemon
                             && map[y][x + 1] != '\\'
                             && map[y][x + 1] != '-'
                             && map[y][x + 1] != '_'
+                            && map[y][x + 1] != ';'
                             && map[y][x + 1] != nurse
                             )
                         {
@@ -156,8 +159,17 @@ namespace Pokemon
                 {
                     Random rnd = new Random();
                     int num = rnd.Next(10);
-                    if (num < 2) gameData.IsEncounter = true;
-                    gameData.CurrentEnemy = new Charmander(1, 3);
+                    switch (num)
+                    {
+                        case 1:
+                            gameData.CurrentEnemy = new Pidgey(1, rnd.Next(1, 4));
+                            gameData.IsEncounter = true;
+                            break;
+                        case 2:
+                            gameData.CurrentEnemy = new Spearow(1, rnd.Next(1, 4));
+                            gameData.IsEncounter = true;
+                            break;
+                    }
                 }
                 else if (
                     map[gameData.Coordinates[1]][gameData.Coordinates[0]] == 'w'
@@ -165,8 +177,21 @@ namespace Pokemon
                 {
                     Random rnd = new Random();
                     int num = rnd.Next(10);
-                    if (num < 2) gameData.IsEncounter = true;
-                    gameData.CurrentEnemy = new Charmander(2, 3);
+                    switch (num)
+                    {
+                        case 1:
+                            gameData.CurrentEnemy = new Pidgey(2, rnd.Next(1, 4));
+                            gameData.IsEncounter = true;
+                            break;
+                        case 2:
+                            gameData.CurrentEnemy = new Spearow(2, rnd.Next(1, 4));
+                            gameData.IsEncounter = true;
+                            break;
+                        case 3:
+                            gameData.CurrentEnemy = new Rattata(2, rnd.Next(1, 4));
+                            gameData.IsEncounter = true;
+                            break;
+                    }
                 }
                 else
                 {

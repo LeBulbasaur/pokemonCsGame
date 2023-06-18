@@ -21,6 +21,9 @@ namespace Pokemon
                 {
                     switch (gameData.CutsceneNumber)
                     {
+                        case -1:
+                            Cutscene.PokemonPrologue(gameData);
+                            break;
                         case 0:
                             Cutscene.EntryDialog(gameData);
                             break;

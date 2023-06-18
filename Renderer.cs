@@ -5,6 +5,9 @@ namespace Pokemon
         public static void Render(GameData gameData, string[] map)
         {
             Console.WriteLine($"x: {gameData.Coordinates[0]} y: {gameData.Coordinates[1]}");
+            Random rnd = new Random();
+            int num = rnd.Next(0, 10);
+            Console.WriteLine(num);
             foreach (string line in map)
             {
                 foreach (char character in line)
@@ -20,6 +23,10 @@ namespace Pokemon
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write('#');
                             break;
+                        case ';':
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.Write(character);
+                            break;
                         case 'D':
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.Write(character);
@@ -33,6 +40,7 @@ namespace Pokemon
                             Console.Write(character);
                             break;
                         case '/':
+                        case '+':
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.Write(character);
                             break;

@@ -23,6 +23,9 @@ namespace Pokemon
                 case Types.Water:
                     Console.ForegroundColor = ConsoleColor.Blue;
                     break;
+                case Types.Normal:
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
             }
             switch (pokemon)
             {
@@ -43,6 +46,27 @@ namespace Pokemon
                 case "Squirtle":
                     string[] squirtle = ASCII.SquirtleArtShorter();
                     foreach (string line in squirtle)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    break;
+                case "Pidgey":
+                    string[] pidgey = ASCII.PidgeyArtShorter();
+                    foreach (string line in pidgey)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    break;
+                case "Spearow":
+                    string[] spearow = ASCII.SpearowArtShorter();
+                    foreach (string line in spearow)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    break;
+                case "Rattata":
+                    string[] rattata = ASCII.RattataArtShorter();
+                    foreach (string line in rattata)
                     {
                         Console.WriteLine(line);
                     }

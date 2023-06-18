@@ -4,7 +4,8 @@ namespace Pokemon
     {
         Water,
         Fire,
-        Grass
+        Grass,
+        Normal
 
     }
 }
