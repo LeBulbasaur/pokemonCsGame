@@ -8,8 +8,8 @@ namespace Pokemon
             Level = level;
             Damage = 5;
             Experience = experience;
-            MaxHP = 20;
-            CurrentHP = 20;
+            MaxHP = 20 * level;
+            CurrentHP = MaxHP;
             Type = Types.Water;
         }
     }

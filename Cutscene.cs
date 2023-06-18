@@ -260,30 +260,52 @@ namespace Pokemon
         public static void NurseJoy(GameData gameData)
         {
             string[] nurseJoy = ASCII.JoyArt();
-            switch (gameData.CutsceneDialog)
+            if (gameData.Pokemons.Count == 0)
             {
-                case 0:
-                    foreach (string line in nurseJoy)
-                    {
-                        Console.WriteLine(line);
-                    }
-                    Console.WriteLine("Welcome to the Pokemon Center!");
-                    Console.WriteLine("We restore your tired Pokemon to full health.");
-                    Console.WriteLine("Would you like to rest your Pokemon?");
-                    Console.WriteLine("\nPress Space to continue...");
-                    break;
-                case 1:
-                    foreach (string line in nurseJoy)
-                    {
-                        Console.WriteLine(line);
-                    }
-                    Console.WriteLine("\n");
-                    Console.WriteLine("We hope to see you again!");
-                    Console.WriteLine("\nPress Space to continue...");
-                    gameData.IsCutscene = false;
-                    gameData.CutsceneDialog = 0;
-                    gameData.EntryTalk = true;
-                    break;
+                Console.WriteLine("\n");
+                Console.WriteLine("You have no Pokemon!");
+                Console.WriteLine("Maybe visit Professor Oak to get one.");
+                Console.WriteLine("\nPress Space to continue...");
+                return;
+            }
+            else
+            {
+
+                switch (gameData.CutsceneDialog)
+                {
+                    case 0:
+                        foreach (string line in nurseJoy)
+                        {
+                            Console.WriteLine(line);
+                        }
+                        Console.WriteLine("\n");
+                        Console.WriteLine("Welcome to the Pokemon Center!");
+                        Console.WriteLine("We restore your tired Pokemon to full health.");
+                        Console.WriteLine("\nPress Space to continue...");
+                        break;
+                    case 1:
+                        foreach (string line in nurseJoy)
+                        {
+                            Console.WriteLine(line);
+                        }
+                        Console.WriteLine("\n");
+                        Console.WriteLine("Healing your Pokemon...");
+                        gameData.Pokemons.ForEach(pokemon => pokemon.CurrentHP = pokemon.MaxHP);
+                        Console.WriteLine("\nPress Space to continue...");
+                        break;
+                    case 2:
+                        foreach (string line in nurseJoy)
+                        {
+                            Console.WriteLine(line);
+                        }
+                        Console.WriteLine("\n");
+                        Console.WriteLine("Your Pokemon have been healed!");
+                        Console.WriteLine("We hope to see you again!");
+                        Console.WriteLine("\nPress Space to continue...");
+                        gameData.IsCutscene = false;
+                        gameData.CutsceneDialog = 0;
+                        break;
+                }
             }
         }
     }

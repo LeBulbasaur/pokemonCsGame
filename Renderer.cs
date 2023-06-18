@@ -15,9 +15,10 @@ namespace Pokemon
                             Console.ForegroundColor = ConsoleColor.Magenta;
                             Console.Write(character);
                             break;
-                        case '#':
+                        case 'q':
+                        case 'w':
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write(character);
+                            Console.Write('#');
                             break;
                         case 'D':
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -51,8 +52,7 @@ namespace Pokemon
                             Console.Write(' ');
                             break;
                         case '1':
-                            Console.Write(' ');
-                            break;
+                        case '2':
                         case '9':
                             Console.Write(' ');
                             break;

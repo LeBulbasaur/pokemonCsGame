@@ -4,6 +4,9 @@ namespace Pokemon
     {
         public static void KeyboardEvent(GameData gameData, string[] map)
         {
+            char nurse = '+';
+            char oak = '♞';
+
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
             if (!gameData.IsCutscene && !gameData.IsEncounter)
@@ -25,6 +28,7 @@ namespace Pokemon
                             && map[y - 1][x] != '\\'
                             && map[y - 1][x] != '-'
                             && map[y - 1][x] != '_'
+                            && map[y - 1][x] != nurse
                             )
                         {
                             gameData.Coordinates[1]--;
@@ -38,7 +42,7 @@ namespace Pokemon
                         {
                             gameData.Coordinates[0] = 23;
                             gameData.Coordinates[1] = 7;
-                            gameData.World = 2;
+                            gameData.World = 9;
                         }
                         break;
 
@@ -53,6 +57,8 @@ namespace Pokemon
                             && map[y + 1][x] != '\\'
                             && map[y + 1][x] != '-'
                             && map[y + 1][x] != '_'
+                            && map[y + 1][x] != nurse
+
                             )
                         {
                             gameData.Coordinates[1]++;
@@ -81,10 +87,16 @@ namespace Pokemon
                             && map[y][x - 1] != '\\'
                             && map[y][x - 1] != '-'
                             && map[y][x - 1] != '_'
-                            && map[y][x - 1] != '♞'
+                            && map[y][x - 1] != oak
+                            && map[y][x - 1] != nurse
                             )
                         {
                             gameData.Coordinates[0]--;
+                        }
+                        if (map[y][x - 1] == '1')
+                        {
+                            gameData.Coordinates[0] = 44;
+                            gameData.World = 1;
                         }
                         break;
 
@@ -92,16 +104,22 @@ namespace Pokemon
                     case ConsoleKey.RightArrow:
                         if (
                             !gameData.IsCutscene
-                            && map[y][x + 2] != '('
-                            && map[y][x + 2] != ')'
-                            && map[y][x + 2] != '|'
-                            && map[y][x + 2] != '/'
-                            && map[y][x + 2] != '\\'
-                            && map[y][x + 2] != '-'
-                            && map[y][x + 2] != '_'
+                            && map[y][x + 1] != '('
+                            && map[y][x + 1] != ')'
+                            && map[y][x + 1] != '|'
+                            && map[y][x + 1] != '/'
+                            && map[y][x + 1] != '\\'
+                            && map[y][x + 1] != '-'
+                            && map[y][x + 1] != '_'
+                            && map[y][x + 1] != nurse
                             )
                         {
                             gameData.Coordinates[0]++;
+                        }
+                        if (map[y][x + 1] == '2')
+                        {
+                            gameData.Coordinates[0] = 2;
+                            gameData.World = 2;
                         }
                         break;
                     case ConsoleKey.E:
@@ -115,7 +133,7 @@ namespace Pokemon
                         break;
                 }
                 if (
-                     map[gameData.Coordinates[1]][gameData.Coordinates[0] - 1] == '♞'
+                     map[gameData.Coordinates[1]][gameData.Coordinates[0] - 1] == oak
                      && !gameData.EntryTalk
                      )
                 {
@@ -123,20 +141,32 @@ namespace Pokemon
                     gameData.CutsceneNumber = 0;
                 }
                 else if (
-                    map[gameData.Coordinates[1]][gameData.Coordinates[0] + 1] == 'o'
+                    map[gameData.Coordinates[1]][gameData.Coordinates[0] + 1] == nurse
+                    || map[gameData.Coordinates[1]][gameData.Coordinates[0] - 1] == nurse
+                    || map[gameData.Coordinates[1] - 1][gameData.Coordinates[0]] == nurse
+                    || map[gameData.Coordinates[1] + 1][gameData.Coordinates[0]] == nurse
                 )
                 {
                     gameData.CanInteract = true;
-                    gameData.CutsceneNumber = 1;
+                    gameData.CutsceneNumber = 9;
                 }
                 else if (
-                    map[gameData.Coordinates[1]][gameData.Coordinates[0]] == '#'
+                    map[gameData.Coordinates[1]][gameData.Coordinates[0]] == 'q'
                 )
                 {
                     Random rnd = new Random();
                     int num = rnd.Next(10);
                     if (num < 2) gameData.IsEncounter = true;
                     gameData.CurrentEnemy = new Charmander(1, 3);
+                }
+                else if (
+                    map[gameData.Coordinates[1]][gameData.Coordinates[0]] == 'w'
+                )
+                {
+                    Random rnd = new Random();
+                    int num = rnd.Next(10);
+                    if (num < 2) gameData.IsEncounter = true;
+                    gameData.CurrentEnemy = new Charmander(2, 3);
                 }
                 else
                 {

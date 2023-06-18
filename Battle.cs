@@ -4,6 +4,8 @@ namespace Pokemon
     {
         private static void PlayerMove(Pokemon enemyPokemon, GameData gameData)
         {
+            bool invalidInput = false;
+
             enemyPokemon.Draw(enemyPokemon.Name);
             Pokemon playerPokemon = gameData.Pokemons[gameData.ChosenPokemon];
             Console.WriteLine($"{playerPokemon.Name}'s HP: {playerPokemon.CurrentHP}/{playerPokemon.MaxHP}");
@@ -44,11 +46,16 @@ namespace Pokemon
                     break;
                 default:
                     Console.WriteLine("Invalid input!");
+                    invalidInput = true;
                     break;
             }
-            Console.WriteLine("Press Space to continue");
-            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            if (keyInfo.Key == ConsoleKey.Spacebar) return;
+            if (invalidInput) PlayerMove(enemyPokemon, gameData);
+            else
+            {
+                Console.WriteLine("Press Space to continue");
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                if (keyInfo.Key == ConsoleKey.Spacebar) return;
+            }
         }
 
         private static void EnemyMove(Pokemon enemyPokemon, GameData gameData)
