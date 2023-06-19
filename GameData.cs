@@ -11,7 +11,7 @@ namespace Pokemon
         public bool IsEncounter { get; set; } = false;
         public Pokemon CurrentEnemy;
         public bool CanInteract { get; set; } = false;
-        public bool IsCutscene { get; set; } = false;
+        public bool IsCutscene { get; set; } = true;
         public int CutsceneNumber { get; set; } = -1;
         public int CutsceneDialog { get; set; } = 0;
         public bool IsRunning { get; set; } = true;
