@@ -58,6 +58,7 @@ namespace Pokemon
                             break;
                         case '1':
                         case '2':
+                        case '7':
                         case '9':
                             Console.Write(' ');
                             break;
@@ -80,15 +81,14 @@ namespace Pokemon
             }
             else
             {
-                Console.WriteLine("\nInventory:");
-                Console.WriteLine($"Potions: {gameData.Potions}");
-
                 if (gameData.Pokemons.Count > 0)
                 {
+                    Console.WriteLine("\nInventory:");
+                    Console.WriteLine($"Potions: {gameData.Potions}");
                     Console.WriteLine($"\nPokemons:");
                     foreach (Pokemon pokemon in gameData.Pokemons)
                     {
-                        Console.WriteLine($"Name: {pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.MaxHP} Level: {pokemon.Level}");
+                        Console.WriteLine($"Name: {pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.MaxHP} Level: {pokemon.Level} Exp: {pokemon.Experience}/10");
                     }
                 }
                 Console.WriteLine("\nPress ESC to quit");

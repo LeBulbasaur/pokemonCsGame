@@ -7,6 +7,7 @@ namespace Pokemon
             bool invalidInput = false;
 
             enemyPokemon.Draw(enemyPokemon.Name);
+            Console.WriteLine("\n");
             Pokemon playerPokemon = gameData.Pokemons[gameData.ChosenPokemon];
             Console.WriteLine($"{playerPokemon.Name}'s HP: {playerPokemon.CurrentHP}/{playerPokemon.MaxHP}");
             Console.WriteLine($"Enemy HP: {enemyPokemon.CurrentHP}/{enemyPokemon.MaxHP}");
@@ -18,17 +19,21 @@ namespace Pokemon
             Console.WriteLine("2. Use potion");
             Console.WriteLine("3. Run");
             Console.Write("> ");
+            Console.CursorVisible = true;
             string input = Console.ReadLine();
+            Console.CursorVisible = false;
             switch (input)
             {
                 case "1":
                     Console.Clear();
                     enemyPokemon.Draw(enemyPokemon.Name);
+                    Console.WriteLine("\n");
                     playerPokemon.Attack(playerPokemon.Damage + playerPokemon.Level, gameData);
                     break;
                 case "2":
                     Console.Clear();
                     playerPokemon.Draw(playerPokemon.Name);
+                    Console.WriteLine("\n");
                     if (gameData.Potions > 0)
                     {
                         playerPokemon.CurrentHP = playerPokemon.MaxHP;
@@ -61,8 +66,9 @@ namespace Pokemon
         private static void EnemyMove(Pokemon enemyPokemon, GameData gameData)
         {
             Console.Clear();
-            enemyPokemon.Draw(enemyPokemon.Name);
             Pokemon playerPokemon = gameData.Pokemons[gameData.ChosenPokemon];
+            playerPokemon.Draw(playerPokemon.Name);
+            Console.WriteLine("\n");
             playerPokemon.CurrentHP -= enemyPokemon.Damage + enemyPokemon.Level;
 
             if (playerPokemon.CurrentHP <= 0)
@@ -72,9 +78,16 @@ namespace Pokemon
                 Console.WriteLine("Press Space to continue");
                 ConsoleKeyInfo keyInfo2 = Console.ReadKey(true);
                 gameData.IsEncounter = false;
+                if (gameData.FightingEnemy1)
+                {
+                    gameData.FightingEnemy1 = false;
+                }
+                if (gameData.FightingEnemy2)
+                {
+                    gameData.FightingEnemy2 = false;
+                }
                 if (keyInfo2.Key == ConsoleKey.Spacebar) return;
             }
-
             Console.WriteLine($"{enemyPokemon.Name} attacked! {playerPokemon.Name} has {playerPokemon.CurrentHP} HP remaining!");
             Console.WriteLine("\n");
 
@@ -90,6 +103,7 @@ namespace Pokemon
                 Pokemon enemyPokemon = gameData.CurrentEnemy;
                 Console.WriteLine($"A wild {enemyPokemon.Name} appeared!\n");
                 enemyPokemon.Draw(enemyPokemon.Name);
+                Console.WriteLine("\n");
                 Console.WriteLine("You have no Pokemon!");
                 Console.WriteLine("Press Space to run");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);

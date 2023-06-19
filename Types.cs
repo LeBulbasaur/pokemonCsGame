@@ -5,7 +5,8 @@ namespace Pokemon
         Water,
         Fire,
         Grass,
-        Normal
+        Normal,
+        Rock
 
     }
 }

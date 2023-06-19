@@ -27,6 +27,18 @@ namespace Pokemon
                         case 0:
                             Cutscene.EntryDialog(gameData);
                             break;
+                        case 5:
+                            Cutscene.Enemy2Defeat(gameData);
+                            break;
+                        case 6:
+                            Cutscene.Enemy2(gameData);
+                            break;
+                        case 7:
+                            Cutscene.Enemy1Defeat(gameData);
+                            break;
+                        case 8:
+                            Cutscene.Enemy1(gameData);
+                            break;
                         case 9:
                             Cutscene.NurseJoy(gameData);
                             break;

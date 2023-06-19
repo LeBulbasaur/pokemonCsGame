@@ -26,6 +26,9 @@ namespace Pokemon
                 case Types.Normal:
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     break;
+                case Types.Rock:
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    break;
             }
             switch (pokemon)
             {
@@ -71,6 +74,13 @@ namespace Pokemon
                         Console.WriteLine(line);
                     }
                     break;
+                case "Onix":
+                    string[] onix = ASCII.OnixArtShorter();
+                    foreach (string line in onix)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    break;
             }
             Console.ResetColor();
         }
@@ -86,12 +96,28 @@ namespace Pokemon
                 if (Experience >= 10)
                 {
                     Level++;
-                    MaxHP += 2;
+                    MaxHP += 2 * Level;
                     CurrentHP = MaxHP;
                     Console.WriteLine($"{Name} leveled up! {Name} is now level {Level}!");
                     Experience -= 10;
                 }
                 gameData.IsEncounter = false;
+                if (gameData.FightingEnemy1)
+                {
+                    gameData.FightingEnemy1 = false;
+                    gameData.Enemy1Defeated = true;
+                    gameData.CanInteract = false;
+                    gameData.IsCutscene = true;
+                    gameData.CutsceneNumber = 7;
+                }
+                else if (gameData.FightingEnemy2)
+                {
+                    gameData.FightingEnemy2 = false;
+                    gameData.Enemy2Defeated = true;
+                    gameData.CanInteract = false;
+                    gameData.IsCutscene = true;
+                    gameData.CutsceneNumber = 5;
+                }
                 return;
             }
             gameData.CurrentEnemy.CurrentHP -= damage;

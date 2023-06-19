@@ -8,7 +8,7 @@ namespace Pokemon
             Level = level;
             Damage = 3;
             Experience = experience;
-            MaxHP = 20 * level;
+            MaxHP = 18 + 2 * level;
             CurrentHP = MaxHP;
             Type = Types.Normal;
         }
