@@ -208,11 +208,11 @@ namespace Pokemon
                     switch (num)
                     {
                         case 1:
-                            gameData.CurrentEnemy = new Pidgey(1, rnd.Next(2, 4));
+                            gameData.CurrentEnemy = new Pidgey(1, rnd.Next(3, 5));
                             gameData.IsEncounter = true;
                             break;
                         case 2:
-                            gameData.CurrentEnemy = new Spearow(1, rnd.Next(2, 4));
+                            gameData.CurrentEnemy = new Spearow(1, rnd.Next(3, 5));
                             gameData.IsEncounter = true;
                             break;
                     }
@@ -226,15 +226,15 @@ namespace Pokemon
                     switch (num)
                     {
                         case 1:
-                            gameData.CurrentEnemy = new Pidgey(2, rnd.Next(2, 4));
+                            gameData.CurrentEnemy = new Pidgey(1, rnd.Next(2, 4));
                             gameData.IsEncounter = true;
                             break;
                         case 2:
-                            gameData.CurrentEnemy = new Spearow(2, rnd.Next(2, 4));
+                            gameData.CurrentEnemy = new Spearow(1, rnd.Next(2, 4));
                             gameData.IsEncounter = true;
                             break;
                         case 3:
-                            gameData.CurrentEnemy = new Rattata(2, rnd.Next(2, 4));
+                            gameData.CurrentEnemy = new Rattata(2, rnd.Next(3, 5));
                             gameData.IsEncounter = true;
                             break;
                     }

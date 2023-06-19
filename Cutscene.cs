@@ -486,13 +486,13 @@ namespace Pokemon
                     switch (gameData.Pokemons[gameData.ChosenPokemon].Name)
                     {
                         case "Bulbasaur":
-                            gameData.CurrentEnemy = new Squirtle(3, 10);
+                            gameData.CurrentEnemy = new Squirtle(4, 10);
                             break;
                         case "Charmander":
-                            gameData.CurrentEnemy = new Bulbasaur(3, 10);
+                            gameData.CurrentEnemy = new Bulbasaur(4, 10);
                             break;
                         case "Squirtle":
-                            gameData.CurrentEnemy = new Charmander(3, 10);
+                            gameData.CurrentEnemy = new Charmander(4, 10);
                             break;
                     }
                     gameData.IsCutscene = false;
@@ -592,7 +592,7 @@ namespace Pokemon
                     Console.WriteLine("\nPress Space to continue...");
                     break;
                 case 3:
-                    gameData.CurrentEnemy = new Onix(4, 10);
+                    gameData.CurrentEnemy = new Onix(5, 10);
                     gameData.IsCutscene = false;
                     gameData.CutsceneDialog = 0;
                     gameData.IsEncounter = true;

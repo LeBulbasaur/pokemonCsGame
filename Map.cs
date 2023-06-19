@@ -7,6 +7,7 @@ namespace Pokemon
         string[] houseMap = ASCII.HouseMap();
         string[] secondMap = ASCII.SecondMap();
         string[] arenaMap = ASCII.ArenaMap();
+        string[] arenaMapOpen = ASCII.ArenaMapOpen();
         public string[] GetWorldMap(GameData gameData, int x, int y)
         {
             string[] map = new string[13];
@@ -22,7 +23,8 @@ namespace Pokemon
                     map = (string[])secondMap.Clone();
                     break;
                 case 7:
-                    map = (string[])arenaMap.Clone();
+                    if (!gameData.Enemy1Defeated) map = (string[])arenaMap.Clone();
+                    else map = (string[])arenaMapOpen.Clone();
                     break;
                 case 9:
                     map = (string[])houseMap.Clone();

@@ -73,11 +73,11 @@ namespace Pokemon
             }
             if (gameData.CanInteract && !gameData.IsCutscene)
             {
-                Console.WriteLine("\nPress E to interact");
+                Console.WriteLine("\nPress E to interact...");
             }
             else if (gameData.IsEncounter)
             {
-                Console.WriteLine("Press E to fight");
+                Console.WriteLine("Press E to fight...");
             }
             else
             {
@@ -91,7 +91,7 @@ namespace Pokemon
                         Console.WriteLine($"Name: {pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.MaxHP} Level: {pokemon.Level} Exp: {pokemon.Experience}/10");
                     }
                 }
-                Console.WriteLine("\nPress ESC to quit");
+                Console.WriteLine("\nPress ESC to quit...");
             }
         }
     }

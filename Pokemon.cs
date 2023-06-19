@@ -92,6 +92,8 @@ namespace Pokemon
                 gameData.CurrentEnemy.CurrentHP = 0;
                 Console.WriteLine($"{gameData.CurrentEnemy.Name} has been attacked! {gameData.CurrentEnemy.Name} fainted!");
                 Console.WriteLine($"{Name} gained {gameData.CurrentEnemy.Experience} experience!");
+                if (CurrentHP + 6 < MaxHP) CurrentHP += 6;
+                else CurrentHP = MaxHP;
                 Experience += gameData.CurrentEnemy.Experience;
                 if (Experience >= 10)
                 {
@@ -121,7 +123,7 @@ namespace Pokemon
                 return;
             }
             gameData.CurrentEnemy.CurrentHP -= damage;
-            Console.WriteLine($"{gameData.CurrentEnemy.Name} has been attacked! {gameData.CurrentEnemy.CurrentHP} HP remaining!");
+            Console.WriteLine($"{gameData.CurrentEnemy.Name} has been attacked! {gameData.CurrentEnemy.CurrentHP} HP remaining!\n");
         }
     }
 }

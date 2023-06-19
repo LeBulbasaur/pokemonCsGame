@@ -57,7 +57,7 @@ namespace Pokemon
             if (invalidInput) PlayerMove(enemyPokemon, gameData);
             else
             {
-                Console.WriteLine("Press Space to continue");
+                Console.WriteLine("\nPress Space to continue...");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 if (keyInfo.Key == ConsoleKey.Spacebar) return;
             }
@@ -75,7 +75,8 @@ namespace Pokemon
             {
                 playerPokemon.CurrentHP = 0;
                 Console.WriteLine($"{enemyPokemon.Name} attacked! {playerPokemon.Name} fainted!");
-                Console.WriteLine("Press Space to continue");
+                Console.WriteLine("\n");
+                Console.WriteLine("\nPress Space to continue...");
                 ConsoleKeyInfo keyInfo2 = Console.ReadKey(true);
                 gameData.IsEncounter = false;
                 if (gameData.FightingEnemy1)
@@ -91,7 +92,7 @@ namespace Pokemon
             Console.WriteLine($"{enemyPokemon.Name} attacked! {playerPokemon.Name} has {playerPokemon.CurrentHP} HP remaining!");
             Console.WriteLine("\n");
 
-            Console.WriteLine("Press Space to continue!");
+            Console.WriteLine("Press Space to continue...");
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.Spacebar) return;
         }
