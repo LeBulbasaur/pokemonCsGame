@@ -237,7 +237,7 @@ namespace Pokemon
                     Console.CursorVisible = true;
                     Console.Write("> ");
                     string? choice = Console.ReadLine();
-                    if (choice != null)
+                    if (choice != null && gameData.Pokemons.Count == 0)
                     {
                         switch (choice)
                         {
@@ -268,7 +268,7 @@ namespace Pokemon
                                 }
                         }
                     }
-                    else
+                    else if (gameData.Pokemons.Count == 0)
                     {
                         Bulbasaur bulbasaur = new Bulbasaur(1, 0);
                         Console.WriteLine("Invalid choice. You will be given Bulbasaur.");
@@ -486,13 +486,13 @@ namespace Pokemon
                     switch (gameData.Pokemons[gameData.ChosenPokemon].Name)
                     {
                         case "Bulbasaur":
-                            gameData.CurrentEnemy = new Squirtle(4, 10);
+                            gameData.CurrentEnemy = new Squirtle(6, 10);
                             break;
                         case "Charmander":
-                            gameData.CurrentEnemy = new Bulbasaur(4, 10);
+                            gameData.CurrentEnemy = new Bulbasaur(6, 10);
                             break;
                         case "Squirtle":
-                            gameData.CurrentEnemy = new Charmander(4, 10);
+                            gameData.CurrentEnemy = new Charmander(6, 10);
                             break;
                     }
                     gameData.IsCutscene = false;
@@ -592,7 +592,7 @@ namespace Pokemon
                     Console.WriteLine("\nPress Space to continue...");
                     break;
                 case 3:
-                    gameData.CurrentEnemy = new Onix(5, 10);
+                    gameData.CurrentEnemy = new Onix(8, 10);
                     gameData.IsCutscene = false;
                     gameData.CutsceneDialog = 0;
                     gameData.IsEncounter = true;
